@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void	fast_put_pixel(t_game *game, int x, int y, int color)
+void	fast_pixel_put(t_game *game, int x, int y, int color)
 {
 	int	offset;
 
@@ -27,13 +27,31 @@ int	game_init(t_game *game)
 	return (1);
 }
 
+void	print_square(t_game *game, int x, int y, int color, int size)
+{
+	int	i;
+	
+	i = -1;
+	while (++i < size)
+		fast_pixel_put(game, x + i, y, color);
+	i = -1;
+	while (++i < size)
+		fast_pixel_put(game, x + i, y + size, color);
+	i = -1;
+	while (++i < size)
+		fast_pixel_put(game, x, y + i, color);
+	i = -1;
+	while (++i < size)
+		fast_pixel_put(game, x + size, y + i, color);
+}
+
 int	main()
 {
 	t_game	game;
 
 	if (!game_init(&game))
 		return (1);
-	fast_put_pixel(&game, WIDTH/2, HEIGHT/2, 0x00FF00);
+	print_square(&game, WIDTH/2, HEIGHT/2, 0xfaf0e6, 20);
 	mlx_put_image_to_window(game.mlx, game.win, game.img, 0, 0);
 	mlx_loop(game.mlx);
 	return (0);

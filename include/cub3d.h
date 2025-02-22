@@ -8,7 +8,7 @@
 #include <math.h>
 
 # define WIDTH 500
-# define HEIGHT 510
+# define HEIGHT 500
 
 typedef struct s_game
 {

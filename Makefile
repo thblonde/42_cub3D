@@ -10,7 +10,7 @@ $(NAME): $(OBJECTS)
 	   cc $(OBJECTS) -o $@ mlx/libmlx_Linux.a -lXext -lX11 -lm
 		  rm -rf obj
 obj/%.o: src/%.c
-	   mkdir -p $(dir $@)
+	   @mkdir -p $(dir $@)
 	   cc -c -I./include $< -o $@
 clean:
 	make clean -C mlx/
