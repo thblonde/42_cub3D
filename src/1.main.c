@@ -43,6 +43,12 @@ int	main(int ac, char **av)
 	ft_init_struct(&game, av[1]);
 	if (ft_open_file(&game))
 		return (FAILURE);
+  if (!game_init(&game))
+    return (FAILURE);
+  mlx_hook(game.win, 2, 1L << 0, keypress, &game.playr);
+	mlx_hook(game.win, 3, 1L << 1, keyrelease, &game.playr);
+	mlx_loop_hook(game.mlx, print_loop, &game);
+  mlx_loop(game.mlx);
 	//(exec)
 	//return (ft_free_map(&game, -42), ft_free_single(&game), FAILURE);
 	ft_free_map(&game, -42);

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = cub3D
-#MLX = lib/mlx/libmlx.a -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+MLX = lib/mlx/libmlx.a -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 
 SRC = src/1.main.c \
 		src/0.ft_free.c \
@@ -19,7 +19,10 @@ SRC = src/1.main.c \
 		src/2.open_file.c \
 		src/3.parse_identifier.c \
 		src/4.map_in_file.c \
-		src/5.parse_map.c
+		src/5.parse_map.c \
+		src/init.c \
+		src/draw.c \
+		src/player_moves.c 
 
 OBJ = $(SRC:src/%.c=obj/%.o)
 
@@ -27,7 +30,7 @@ all: logo $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C lib/
-#@make -C lib/mlx/
+	@make -C lib/mlx/
 #@cc -Wall -Wextra -Werror $(OBJ) -o $@ lib/lib.a $(MLX)
 	@cc -Wall -Wextra -Werror $(OBJ) -o $@ lib/lib.a $(MLX)
 	@echo "\033[0;32m Compiling Success!\033[0m"
