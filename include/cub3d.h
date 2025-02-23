@@ -1,19 +1,20 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include "../mlx/mlx.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <math.h>
+# include "../mlx/mlx.h"
+# include <math.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
 
-# define WIDTH 500
-# define HEIGHT 500
+# define WIDTH 1200
+# define HEIGHT 720
 
 # define PI 3.14159265359
 
 // Linux
-# define W 119 
+# define W 119
 # define S 115
 # define A 97
 # define D 100
@@ -27,15 +28,32 @@
 //# define D 2
 //# define ESC 53
 
+typedef struct s_keypress
+{
+	bool		key_up;
+	bool		key_down;
+	bool		key_left;
+	bool		key_right;
+}				t_keypress;
+
+
+typedef struct s_player
+{
+	int			player_x;
+	int			player_y;
+	t_keypress	keypress;
+}				t_player;
+
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	char	*addr;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
-}		t_game;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+	t_player	player;
+}				t_game;
 
 #endif
