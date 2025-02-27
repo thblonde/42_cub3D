@@ -10,6 +10,10 @@ int	key_press(int keycode, t_player *player)
 		player->key_left = true;
 	if (keycode == D)
 		player->key_right = true;
+	if (keycode == LEFT_ARROW)
+		player->key_left_arrow = true;
+	if (keycode == RIGHT_ARROW)
+		player->key_right_arrow = true;
 	return (SUCCESS);
 }
 
@@ -23,6 +27,10 @@ int	key_release(int keycode, t_player *player)
 		player->key_left = false;
 	if (keycode == D)
 		player->key_right = false;
+	if (keycode == LEFT_ARROW)
+		player->key_left_arrow = false;
+	if (keycode == RIGHT_ARROW)
+		player->key_right_arrow = false;
 	return (SUCCESS);
 }
 
@@ -30,7 +38,7 @@ void	player_move(t_player *player)
 {
 	int	pixel_move;
 
-	pixel_move = 5;
+	pixel_move = 1;
 	if (player->key_up)
 		player->y -= pixel_move;
 	if (player->key_down)

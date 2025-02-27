@@ -1,7 +1,7 @@
 NAME = cub3D
 MLX = lib/mlx/libmlx.a -Lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 INCLUDES = -I./includes
-SRC = srcs/main.c srcs/draw.c srcs/player.c
+SRC = srcs/main.c srcs/draw.c srcs/player.c srcs/raycast.c
 OBJ = $(SRC:src/%.c=obj/%.o)
 
 all: $(NAME)

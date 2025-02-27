@@ -23,10 +23,13 @@ void	player_init(t_player *player)
 {
 	player->x = 8;
 	player->y = 4;
+	player->angle = PI / 2;
 	player->key_up = false;
 	player->key_down = false;
 	player->key_left = false;
 	player->key_right = false;
+	player->key_left_arrow = false;
+	player->key_right_arrow = false;
 }
 
 int	game_init(t_game *game)

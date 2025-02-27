@@ -76,7 +76,8 @@ int	draw_loop(t_game *game)
     player = &game->player;
     player_move(player);
     clean_image(game);
-	draw_square(game, game->player.x, game->player.y, 0xe6e6fa, TILE);
+	draw_square(game, game->player.x * TILE, game->player.y * TILE, 0xe6e6fa, TILE);
+    raycast(game);
 	draw_map(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img, 0, 0);
 	return (SUCCESS);

@@ -27,6 +27,7 @@ typedef struct s_player
 {
 	int			x;
 	int			y;
+	int			angle;
 	bool		key_up;
 	bool		key_down;
 	bool		key_left;
@@ -50,10 +51,14 @@ typedef struct s_game
 
 /* draw */
 int				draw_loop(t_game *game);
+void			my_pixel_put(t_game *game, int x, int y, int color);
 
 /* player */
 void			player_move(t_player *player);
 int				key_press(int keycode, t_player *player);
 int				key_release(int keycode, t_player *player);
+
+/* raycast */
+int				raycast(t_game *game);
 
 #endif
