@@ -25,9 +25,9 @@
 
 typedef struct s_player
 {
-	int			x;
-	int			y;
-	int			angle;
+	float			x;
+	float			y;
+	float			angle;
 	bool		key_up;
 	bool		key_down;
 	bool		key_left;
