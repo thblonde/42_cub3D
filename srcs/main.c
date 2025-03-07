@@ -23,7 +23,7 @@ void	player_init(t_player *player)
 {
 	player->x = 8;
 	player->y = 4;
-	player->angle = PI / 2;
+	player->angle = M_PI / 2;
 	player->key_up = false;
 	player->key_down = false;
 	player->key_left = false;

@@ -34,17 +34,60 @@ int	key_release(int keycode, t_player *player)
 	return (SUCCESS);
 }
 
+// void	player_move(t_player *player)
+// {
+// 	int	pixel_move;
+
+// 	pixel_move = 1;
+// 	if (player->key_up)
+// 		player->y -= pixel_move;
+// 	if (player->key_down)
+// 		player->y += pixel_move;
+// 	if (player->key_left)
+// 		player->x -= pixel_move;
+// 	if (player->key_right)
+// 		player->x += pixel_move;
+// }
+
 void	player_move(t_player *player)
 {
-	int	pixel_move;
+	int		pixel_move;
+	float	angle_speed;
+	float	cos_angle;
+	float	sin_angle;
 
 	pixel_move = 1;
+	angle_speed = 0.1;
+	cos_angle = cos(player->angle);
+	sin_angle = sin(player->angle);
+
+	if (player->key_left_arrow)
+		player->angle -= angle_speed;
+	if (player->key_right_arrow)
+		player->angle += angle_speed;
+	if (player->angle > 2 * M_PI)
+		player->angle = 0;
+	if (player->angle < 0)
+		player->angle = 2 * M_PI;
+
 	if (player->key_up)
-		player->y -= pixel_move;
+	{
+		player->x += cos_angle * pixel_move;
+		player->y += sin_angle * pixel_move;
+	}
 	if (player->key_down)
-		player->y += pixel_move;
+	{
+		player->x -= cos_angle * pixel_move;
+		player->y -= sin_angle * pixel_move;
+	}
 	if (player->key_left)
-		player->x -= pixel_move;
+	{
+		player->x += sin_angle * pixel_move;
+		player->y -= cos_angle * pixel_move;
+	}
 	if (player->key_right)
-		player->x += pixel_move;
+	{
+		player->x -= sin_angle * pixel_move;
+		player->y += cos_angle * pixel_move;
+	}
 }
